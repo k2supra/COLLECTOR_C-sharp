@@ -13,6 +13,10 @@ namespace ex_1
         {
             Console.Write("Enter a number between 1 to 100: ");
             byte number = Convert.ToByte(Console.ReadLine());
+            if (number <= 0 || number > 100)
+            {
+                Console.WriteLine("Error");
+            }
             if (number % 3 == 0 && number % 5 != 0) 
             {
                 Console.WriteLine("Fizz"); 
