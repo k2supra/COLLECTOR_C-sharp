@@ -279,6 +279,12 @@ namespace ex_2
                 item.display();
             }
         }
+
+        public Magazine this[int index] 
+        {
+            get { return wish_list[index]; }
+            set { wish_list[index] = value; }
+        }
     }
     internal class Program
     {
@@ -312,6 +318,7 @@ namespace ex_2
             mtr += magazine1;
             mtr += magazine2;
             mtr.isInList(magazine1);
+            mtr[1] = magazine3;
             mtr.display();
         }
     }
