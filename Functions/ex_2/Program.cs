@@ -49,7 +49,7 @@ namespace ex_2
             displayDayOfTheWeek();
 
             calcRectangle(5, 2);
-            calcTriangle(3, 2);
+            calcTriangle(3, 2); 
         }
     }
 }
