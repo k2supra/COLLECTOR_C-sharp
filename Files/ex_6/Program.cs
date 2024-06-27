@@ -73,6 +73,9 @@ namespace ex_6
         public IEnumerable<Poem> ReportByWord(string word) { return poems.Where(w => w.Text.Contains(word)); }
         public IEnumerable<Poem> ReportByYear(int year) { return poems.Where(y => y.Year == year); }
         public IEnumerable<Poem> ReportByLength(int length) { return poems.Where(l => l.Text.Length == length); }
+        public IEnumerable<Poem> ReportByName(string name) { return poems.Where(n => n.Title == name); }
+        public IEnumerable<Poem> ReportByAuthor(string author) { return poems.Where(a => a.Author == author); }
+        public IEnumerable<Poem> ReportByTheme(string theme) { return poems.Where(t => t.Theme == theme); }
         public void PrintAllPoems()
         {
             foreach (var poem in poems)
@@ -101,6 +104,9 @@ namespace ex_6
                 Console.WriteLine("8. Report by Word in Text");
                 Console.WriteLine("9. Report by Year");
                 Console.WriteLine("10. Report by Length");
+                Console.WriteLine("11. Report by Name");
+                Console.WriteLine("12. Report by Author");
+                Console.WriteLine("13. Report by Theme");
                 Console.WriteLine("0. Exit");
                 Console.Write("Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -222,6 +228,42 @@ namespace ex_6
             var results = poemCollection.ReportByWord(word);
 
             Console.WriteLine("Poems containing the word in text:");
+            foreach (var poem in results)
+            {
+                Console.WriteLine(poem);
+            }
+        }
+        static void ReportByAuthor(PoemCollection poemCollection)
+        {
+            Console.Write("Enter author: ");
+            string author = Console.ReadLine();
+            var results = poemCollection.ReportByWord(author);
+
+            Console.WriteLine("Poems containing the author:");
+            foreach (var poem in results)
+            {
+                Console.WriteLine(poem);
+            }
+        }
+        static void ReportByName(PoemCollection poemCollection)
+        {
+            Console.Write("Enter word to search in name: ");
+            string title = Console.ReadLine();
+            var results = poemCollection.ReportByWord(title);
+
+            Console.WriteLine("Poems containing the title:");
+            foreach (var poem in results)
+            {
+                Console.WriteLine(poem);
+            }
+        }
+        static void ReportByTheme(PoemCollection poemCollection)
+        {
+            Console.Write("Enter theme: ");
+            string theme = Console.ReadLine();
+            var results = poemCollection.ReportByTheme(theme);
+
+            Console.WriteLine("Poems containing theme:");
             foreach (var poem in results)
             {
                 Console.WriteLine(poem);
