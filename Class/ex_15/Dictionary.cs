@@ -39,6 +39,10 @@ namespace Dictionary
                 language_dictionary.Add(word, translation);
                 SaveToFile();
             }
+            else
+            {
+                Console.WriteLine("Word is already exists");
+            }
         }
         public void AddTranslation(string word, List<string> translation)
         {
@@ -173,10 +177,12 @@ namespace Dictionary
                         language_dictionary[word] = translations;
                     }
                 }
+                SortData();
             }
         }
         private void SaveToFile()
         {
+            SortData();
             using (var writer = new StreamWriter(Language_language, false, Encoding.UTF8))
             {
                 foreach (var item in language_dictionary)
@@ -184,6 +190,10 @@ namespace Dictionary
                     writer.WriteLine($"{item.Key}: {string.Join(", ", item.Value)}");
                 }
             }
+        }
+        private void SortData()
+        {
+            language_dictionary = language_dictionary.OrderBy(x => x.Key).ToDictionary(k => k.Key, k => k.Value);
         }
     }
     public class AllDictionaries
