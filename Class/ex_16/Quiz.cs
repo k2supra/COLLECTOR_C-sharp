@@ -99,6 +99,30 @@ namespace Quiz
         {
             return _quizzes.First(q =>  q.Name == name);
         }
+        public static List<Question> GetRandomQuestions(int count)
+        {
+            Random random = new Random();
+            return _quizzes.SelectMany(q => q.Questions)
+                           .OrderBy(q => random.Next())
+                           .Take(count)
+                           .ToList();
+        }
+        public static void EditQuizName(string oldname, string newname)
+        {
+            var quiz = _quizzes.FirstOrDefault(q => q.Name == oldname);
+            if (quiz != null) { quiz.Name = newname; SaveQuizzes(); }
+        }
+        public static void EditQuestion(string quizName, int questionIndex, string newText, List<string> newOptions, List<int> newAnswers)
+        {
+            var quiz = _quizzes.FirstOrDefault(q => q.Name == quizName);
+            if (quiz != null && questionIndex >= 0 && questionIndex < quiz.Questions.Count)
+            {
+                quiz.Questions[questionIndex].Text = newText;
+                quiz.Questions[questionIndex].Options = newOptions;
+                quiz.Questions[questionIndex].Answers = newAnswers;
+                SaveQuizzes();
+            }
+        }
         public static void SaveResult(string username, string quizName, int correctAnswers, int totalQuestions)
         {
             _results.Add(new QuizResult
