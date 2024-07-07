@@ -17,7 +17,7 @@ namespace ex_21
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            LogManager.LoadConfiguration("nlog.config");
+            LogManager.LoadConfiguration("nlog.config"); 
             string filepath = "text.txt";
             string text = File.ReadAllText(filepath);
             var sentences = SplitSentences(text);
