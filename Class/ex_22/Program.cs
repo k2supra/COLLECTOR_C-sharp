@@ -54,7 +54,7 @@ namespace ex_22
 
             Log.Information("Application finished");
 
-            log.Info("\n\nLog4net start");
+            log.Info("\n\nLog4net start"); 
 
             var userGenerator2 = new FakeUserGenerator();
             for (int i = 0; i < 3; i++)
