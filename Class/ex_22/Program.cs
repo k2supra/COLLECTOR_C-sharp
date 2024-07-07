@@ -59,7 +59,7 @@ namespace ex_22
             var userGenerator2 = new FakeUserGenerator();
             for (int i = 0; i < 3; i++)
             {
-                var user = userGenerator.GenerateFakeUser();
+                var user = userGenerator.GenerateFakeUser(); 
                 log.Info("Generated user:");
                 Console.WriteLine($"Name: {user.FirstName} {user.LastName}");
                 Console.WriteLine($"Phone: {user.PhoneNumber}");
