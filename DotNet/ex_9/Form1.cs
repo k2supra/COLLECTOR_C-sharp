@@ -48,16 +48,22 @@ namespace ex_9
             int r = dataGridView1.RowCount;
             int c = dataGridView1.ColumnCount;
             int[] arr = new int[r * c];
+            int t = 0;
 
             for (int i = 0; i < r; i++)
             {
                 for (int j = 0; j < c; j++)
                 {
-                    arr[i * dataGridView1.ColumnCount + j] = Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value);
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) >= 0)
+                    {
+                        arr[t] = Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value);
+                        t++;
+                    }
                 }
             }
+            Array.Resize(ref arr, t);
             listBox1.Items.Clear();
-            foreach (int i in arr) listBox1.Items.Add(i);
+            foreach (int i in arr) listBox1.Items.Add(i * i);
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
