@@ -18,10 +18,29 @@ namespace ex_9
             {
                 for (int j = 0; j < c; j++)
                 {
-                    dataGridView1.Rows[i].Cells[j].Value = random.Next(-10, 10);
+                    dataGridView1.Rows[i].Cells[j].Value = random.Next(-20, 20);
                     dataGridView1.Columns[j].Width = 35;
                 }
             }
+            rows_mult_less_40();
+        }
+        private void rows_mult_less_40()
+        {
+            int number = 0;
+            int temp = 1;
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    temp *= Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value);
+                }
+                if (temp > 40)
+                {
+                    number++;
+                }
+                temp = 1;
+            }
+            label3.Text = $"Amount of rows that number`s multiplication < 40 : {number}";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,6 +58,11 @@ namespace ex_9
             }
             listBox1.Items.Clear();
             foreach (int i in arr) listBox1.Items.Add(i);
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            rows_mult_less_40();
         }
     }
 }
