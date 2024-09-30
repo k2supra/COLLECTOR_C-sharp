@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             textBox5 = new TextBox();
@@ -80,6 +81,7 @@
             groupBox4 = new GroupBox();
             label12 = new Label();
             pictureBox4 = new PictureBox();
+            toolTip1 = new ToolTip(components);
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -626,6 +628,13 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 17;
             pictureBox4.TabStop = false;
+            //
+            // tooltip
+            //
+            toolTip1.SetToolTip(pictureBox1, "Equilateral triangle");
+            toolTip1.SetToolTip(pictureBox2, "Right triangle");
+            toolTip1.SetToolTip(pictureBox3, "Isosceles triangle");
+            toolTip1.SetToolTip(pictureBox4, "Free triangle");
             // 
             // Form1
             // 
@@ -713,5 +722,6 @@
         private Label label11;
         private Button button9;
         private Button button10;
+        private ToolTip toolTip1;
     }
 }
