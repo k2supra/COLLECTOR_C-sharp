@@ -635,6 +635,7 @@
             toolTip1.SetToolTip(pictureBox2, "Right triangle");
             toolTip1.SetToolTip(pictureBox3, "Isosceles triangle");
             toolTip1.SetToolTip(pictureBox4, "Free triangle");
+            toolTip1.SetToolTip(tabPage1, "Free triangle");
             // 
             // Form1
             // 
